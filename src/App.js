@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-
+import Dangnhap from './components/Dangnhap';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -52,6 +52,9 @@ function App() {
         } />
         <Route path="/hoa-don" element={
           <Hoadon />
+        } />
+        <Route path="/dang-nhap" element={
+          <Dangnhap />
         } />
       </Routes>
     </BrowserRouter>
