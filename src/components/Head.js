@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -15,11 +15,15 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
-
+import { addData, getData } from '../redux/Action';
+import store from '../redux/Store';
 import MailIcon from '@mui/icons-material/Mail'
+import Nav2 from './Nav2';
 
-const Head = () => {
-
+const Head = ({ menu, setmenu }) => {
+    const [state, setstate] = useState('2508roblox');
+    const datass = { id: 'user', name: state };
+    store.dispatch(addData(datass));
     return (
 
         <AppBar position='sticky' sx={{
@@ -33,7 +37,20 @@ const Head = () => {
                 justifyContent: 'space-between'
             }}>
                 <Box gap={2} alignItems={'center'} display={'flex'}>
-                    <MenuIcon />
+                    <MenuIcon onClick={e => { setmenu('block') }}
+                        sx={{
+                            display: {
+                                md: 'block', lg: 'none', sm: 'block', xs: 'block'
+                            }
+                        }}
+                    />
+                    <MenuIcon
+                        sx={{
+                            display: {
+                                md: 'none', lg: 'block', sm: 'none', xs: 'none'
+                            }
+                        }}
+                    />
                     <Button variant="outlined" sx={{
                         color: '#3378ff'
                     }}>
@@ -62,7 +79,7 @@ const Head = () => {
                     <Typography sx={{
                         fontSize: '15px'
                     }} gutterBottom>
-                        2508roblox
+                        {state}
                     </Typography>
 
                 </Box>
@@ -79,12 +96,13 @@ const Head = () => {
                 >
                     <DragHandleSharpIcon sx={{
                         bgcolor: 'gray',
-                        borderRadius:'5px'
+                        borderRadius: '5px'
 
                     }} />
                 </Box>
 
             </Toolbar>
+
         </AppBar>
 
     )

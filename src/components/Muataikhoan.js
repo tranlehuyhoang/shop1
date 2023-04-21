@@ -15,6 +15,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
+import Footer from './Footer';
+import Nav2 from './Nav2';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -28,7 +30,8 @@ const style = {
     p: '10px 0',
     border: '0'
 };
-const Slide = () => {
+const Muataikhoan = () => {
+
     useEffect(() => {
         setstate(true)
     }, []);
@@ -97,7 +100,7 @@ const Slide = () => {
 
                 </Box>
             </Modal >
-            <Box onClick={e => { setstate(false) }} mt={2} display={'flex'} onClick={e => setstate(false)} sx={{
+            <Box onClick={e => { setstate(false) }} mt={2} display={'flex'} sx={{
                 overflowY: 'scroll',
                 flexDirection: 'column',
                 textAlign: 'center',
@@ -106,7 +109,7 @@ const Slide = () => {
             }} bgcolor={'#222222'} height={'1000px'} >
 
 
-                <Box sx={{
+                <Box position={'relative'} sx={{
                     border: '1px solid #1976d2',
                     flex: '1', display: 'flex', flexDirection: 'column',
                     backgroundColor: '#181818'
@@ -143,7 +146,7 @@ const Slide = () => {
                     </Typography>
 
                 </Box>
-                <Box sx={{
+                <Box mb={80} sx={{
                     flex: '2'
                 }} variant="outlined">
                     <TableContainer component={Paper} sx={{ margin: '10px 0' }}>
@@ -282,18 +285,11 @@ const Slide = () => {
                     </TableContainer>
 
                 </Box>
-                <Box bgcolor={'black'} mt={10} p={2} display={'flex'} justifyContent={'space-between'}>
-                    <Typography variant="h6" gutterBottom gap={1} color={'white'} sx={{ fontSize: '13px' }}>
-                        Chính sách bảo mật Điều khoản sử dụng
-                    </Typography>
-                    <Typography variant="h6" gutterBottom gap={1} color={'white'} sx={{ fontSize: '13px' }}>
-                        Version <span style={{ color: 'red' }}>5.1.9</span> | Powered By <span style={{ color: '#3378ff' }}>TLHHHH</span>
-
-                    </Typography>
-                </Box>
+               <Footer/>
+               
             </Box >
         </>
     )
 }
 
-export default Slide
+export default Muataikhoan

@@ -1,54 +1,64 @@
 import { Box, Button } from '@mui/material'
 import CardMedia from '@mui/material/CardMedia';
 import List from '@mui/material/List';
-import { useLocation } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
+import { useLocation } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import { Link } from 'react-router-dom';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import { Link } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import BrandingWatermarkIcon from '@mui/icons-material/BrandingWatermark';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
-import React from 'react'
+import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from 'react'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-const Nav = () => {
+const Nav2 = ({ menu, setmenu }) => {
+
     const { pathname } = useLocation();
-
     return (
-        <Box bgcolor={'#181818'} sx={{
-            display: {
-                md: 'none', lg: 'block', sm: 'none', xs: 'none'
-            },
+        <Box
+            sx={{
+                position: 'fixed',
+                top: '0',
+                left: '0',
+                zIndex: '9999',
+                width: '250px',
+                height: '100%',
+                backgroundColor: '#181818',
+                transition: 'transform 2s ease-in-out',
 
-        }} width={400}>
+                display: {
+                    md: menu, lg: 'none', sm: menu, xs: menu, xl: 'none'
+                },
+            }}
+        >
             <Box position={'fixed'} sx={{
 
                 height: '100%',
+                bgcolor: '#181818',
                 width: '250px',
+                overflowY: 'scroll',
 
-
-                display: {
-                    md: 'none', lg: 'block', sm: 'none', xs: 'none'
-                },
                 padding: {
                     md: '0', lg: '20px', sm: '0', xs: '0'
                 },
 
             }}>
+
                 <Button variant="text" href='/'>
 
                     <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
                 </Button>
-
+                <CloseIcon onClick={e => { setmenu('none') }} />
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -71,7 +81,6 @@ const Nav = () => {
                     SỐ DƯ <span style={{ color: 'yellow' }}>0Đ</span> -GIẢM:<span style={{ color: 'red' }}>0%</span>
                 </Typography>
                 <List>
-
                     {
                         pathname == '/' ?
                             <Link to="/" style={{
@@ -112,10 +121,6 @@ const Nav = () => {
                                 </ListItem>
                             </Link>
                     }
-
-
-
-
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon >
@@ -143,46 +148,16 @@ const Nav = () => {
                     Nạp Tiền
                 </Typography>
                 <List>
-                    {pathname == '/ngan-hang'
-
-                        ?
-                        <Link to="/ngan-hang" style={{
-                            color: 'white',
-                            textDecoration: 'none'
-                        }}>
-                            <ListItem disablePadding sx={{
-                                bgcolor: '#3b3d3f',
-                                borderRadius: '10px'
-                            }}>
-                                <ListItemButton href='/ngan-hang'>
-                                    <ListItemIcon >
-                                        <AccountBalanceIcon sx={{
-                                            color: 'white'
-                                        }} />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Ngân Hàng" />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-                        :
-                        <Link to="/ngan-hang" style={{
-                            color: 'white',
-                            textDecoration: 'none'
-                        }}>
-
-                            <ListItem disablePadding>
-                                <ListItemButton href='/ngan-hang'>
-                                    <ListItemIcon >
-                                        <AccountBalanceIcon sx={{
-                                            color: 'white'
-                                        }} />
-                                    </ListItemIcon>
-                                    <ListItemText primary="Ngân Hàng" />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-                    }
-
+                    <ListItem disablePadding>
+                        <ListItemButton href='/ngan-hang'>
+                            <ListItemIcon >
+                                <AccountBalanceIcon sx={{
+                                    color: 'white'
+                                }} />
+                            </ListItemIcon>
+                            <ListItemText primary="Ngân Hàng" />
+                        </ListItemButton>
+                    </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon >
@@ -250,8 +225,8 @@ const Nav = () => {
                     </ListItem>
                 </List>
             </Box>
-        </Box >
+        </Box>
     )
 }
 
-export default Nav
+export default Nav2

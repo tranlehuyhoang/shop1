@@ -1,0 +1,10 @@
+// import { addData, getData } from './Action';
+// import store from './Store';
+
+// // Lưu dữ liệu
+// const data = { id: 1, name: 'John' };
+// store.dispatch(addData(data));
+
+// // Lấy dữ liệu
+// const currentState = store.getState();
+// console.log(currentState.data);
