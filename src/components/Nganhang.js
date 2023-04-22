@@ -28,7 +28,7 @@ const notify1 = () => toast.error("Vui lòng đăng nhập");
 const notify2 = () => toast.error("xác nhận mật khẩu sai");
 const notify3 = () => toast.success("Thành công");
 const notify4 = () => toast.error("Không hợp lệ");
-const notify5 = () => toast.error("Tên tài khoản phải lớn hơn 6 kí tự");
+const notify5 = () => toast.error("Số ti");
 
 const style = {
     position: 'absolute',
@@ -55,9 +55,9 @@ const Nganhang = () => {
     }
 
 
+
+
     const [userss, setsuser] = useState(undefined);
-
-
     useEffect(() => {
         console.log(pathname)
         if (pathname !== '') {
@@ -75,13 +75,18 @@ const Nganhang = () => {
     const [state1, setstate1] = useState(false);
     const [state12, setstate12] = useState(20000);
     const taohoadon = () => {
-        notify1()
-        console.log('userss', userss)
 
         const datass = { id: 'giatien', name: state12 };
         store.dispatch(addData(datass));
         const currentState = store.getState();
         console.log(currentState.data);
+        setsuser(currentState.data[0].name)
+        if (currentState.data[0].name) {
+            setsuser(currentState.data[0].name)
+
+        } else {
+            notify1()
+        }
 
 
     }
@@ -112,7 +117,47 @@ const Nganhang = () => {
         setstate12(event.target.value);
     };
 
+    function MyComponent() {
+        if (Number(state12) > 20000 && userss) {
+            return (
+                <Link to={'/hoa-don'}>
+                    <Button variant="contained" color='primary' onClick={e => {
+                        taohoadon()
 
+
+                    }}> Tạo Hóa Đơn</Button>
+                </Link>
+            )
+        } else if (!userss) {
+            <Link to={'/ngan-hang'}>
+                <Button variant="contained" color='primary' onClick={e => {
+
+
+
+                }}> Tạo Hóa Đơn</Button>
+            </Link>
+        } else if (Number(state12) < 20000) {
+            <Link to={'/ngan-hang'}>
+                <Button variant="contained" color='primary' onClick={e => {
+
+                    notify1 = () => toast.error("Vui lòng đăng nhập");
+                    notify2 = () => toast.error("xác nhận mật khẩu sai");
+                    notify3 = () => toast.success("Thành công");
+                    notify4 = () => toast.error("Không hợp lệ");
+                    notify5 = () => toast.error("Tên tài khoản phải lớn hơn 6 kí tự");
+
+                }}> Tạo Hóa Đơn</Button>
+            </Link>
+        }
+
+
+
+
+
+
+
+
+    }
 
 
     return (
@@ -202,6 +247,7 @@ const Nganhang = () => {
                     <Stack p={2} spacing={2} direction="row" display={'flex'} justifyContent={'flex-end'}>
 
                         <Button variant="contained" color='error' sx={{ bgcolor: '#8f9fbc' }} onClick={e => { setstate1(false) }} >Đóng</Button>
+
                         {Number(state12) < 20000
                             ?
                             <Button variant="contained" color='primary' onClick={e => {
@@ -223,6 +269,7 @@ const Nganhang = () => {
                         }
 
 
+
                     </Stack>
 
                 </Box>
@@ -232,7 +279,7 @@ const Nganhang = () => {
                 overflowY: 'scroll',
                 flexDirection: 'column',
                 textAlign: 'center',
-                width:'100%'
+                width: '100%'
 
 
             }} bgcolor={'#222222'} height={'1000px'} >

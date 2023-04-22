@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import MapsUgcIcon from '@mui/icons-material/MapsUgc';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import axios from 'axios';
 import store from '../redux/Store';
@@ -415,7 +415,9 @@ const Hoadon = () => {
                     }}>
                         Vui lòng thanh toán vào thông tin tài khoản trên để hệ thống xử lý hoá đơn tự động.
                     </Typography>
-                    <Button variant="text" href='/ngan-hang'> <ArrowBackIcon /> Quay Lại</Button>
+                    <Link to={'/ngan-hang'}>
+                        <Button variant="text" > <ArrowBackIcon /> Quay Lại</Button>
+                    </Link>
 
                 </Box>
             </Box>
