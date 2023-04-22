@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { useNavigate } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -96,6 +96,9 @@ const Nganhang = () => {
     const handleInputChange = (event) => {
         setstate12(event.target.value);
     };
+
+
+
 
     return (
         <>
@@ -189,7 +192,7 @@ const Nganhang = () => {
                             <Button variant="contained" color='primary' onClick={e => {
 
                                 notify()
-                              
+
 
 
                             }} > Tạo Hóa Đơn</Button>
