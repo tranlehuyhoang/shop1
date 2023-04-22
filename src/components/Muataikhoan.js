@@ -115,7 +115,7 @@ const Muataikhoan = () => {
                     backgroundColor: '#181818'
                 }} variant="outlined">
                     <Typography variant="h6" gutterBottom gap={1} color={'#8e44ad'}>
-                        VUI LÒNG BANK ACB AUTO - VIETCOMBANK CỘNG TAY NHÉ
+                        VUI LÒNG BANK MB  ĐỂ AUTO NHÉ
                         😘
                     </Typography>
                     <Typography variant="h6" gutterBottom color={'#27ae60'} fontSize={16}>
@@ -125,9 +125,9 @@ const Muataikhoan = () => {
                         Mọi danh mục clone đều có ghi chú rõ ràng về các kiểu xuất file
                     </Typography>
                     <Typography variant="h6" gutterBottom fontSize={16}>
-                        <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Zalo hỗ trợ :</span> 0866720209
+                        <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Zalo hỗ trợ :</span> 0337799453
                         <br />
-                        <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Hotline hỗ trợ:</span> 0355275555
+                        <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Hotline hỗ trợ:</span> 0337799453
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         Lưu Ý:
@@ -285,8 +285,8 @@ const Muataikhoan = () => {
                     </TableContainer>
 
                 </Box>
-               <Footer/>
-               
+                <Footer />
+
             </Box >
         </>
     )

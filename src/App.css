@@ -70,7 +70,7 @@ img {
   padding-bottom    : 6px;
   font-weight       : 700;
   border-width      : 3px;
-  border-image      : linear-gradient(to right, #11998e, #38ef7d);
+  border-image      : linear-gradient(to right, #ffffff, #e0e40e);
   border-image-slice: 1;
 }
 
@@ -80,7 +80,7 @@ img {
   display    : block;
   transition : 0.2s;
   font-size  : 1rem;
-  color      : #11998e;
+  color      : #ccc932;
   font-weight: 700;
 }
 

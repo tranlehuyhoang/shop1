@@ -24,7 +24,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 
-
+const notify1 = () => toast.error("Vui lòng đăng nhập");
+const notify2 = () => toast.error("xác nhận mật khẩu sai");
+const notify3 = () => toast.success("Thành công");
+const notify4 = () => toast.error("Không hợp lệ");
+const notify5 = () => toast.error("Tên tài khoản phải lớn hơn 6 kí tự");
 
 const style = {
     position: 'absolute',
@@ -41,10 +45,12 @@ const style = {
 };
 const Nganhang = () => {
 
+    const [userss, setsuser] = useState(undefined);
 
 
     useEffect(() => {
-
+        setsuser(localStorage.getItem("email"))
+        console.log(userss)
     }, []);
 
     // Lấy dữ liệu
@@ -54,10 +60,15 @@ const Nganhang = () => {
     const [state1, setstate1] = useState(false);
     const [state12, setstate12] = useState(20000);
     const taohoadon = () => {
+        notify1()
+        console.log('userss', userss)
+
         const datass = { id: 'giatien', name: state12 };
         store.dispatch(addData(datass));
         const currentState = store.getState();
         console.log(currentState.data);
+
+
     }
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -88,6 +99,18 @@ const Nganhang = () => {
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <Modal
                 open={state1}
 
@@ -166,15 +189,14 @@ const Nganhang = () => {
                             <Button variant="contained" color='primary' onClick={e => {
 
                                 notify()
-                                taohoadon()
+                              
 
 
                             }} > Tạo Hóa Đơn</Button>
                             :
 
-                            <Link to={'/hoa-don'}>
+                            <Link to={userss ? '/hoa-don' : '/ngan-hang'}>
                                 <Button variant="contained" color='primary' onClick={e => {
-
                                     taohoadon()
 
 

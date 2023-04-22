@@ -58,190 +58,352 @@ const Hoadon = () => {
         postanh();
     }, []);
     return (
-        <Box display={'flex'} flexDirection={'column'} sx={{
-            bgcolor: '#FFFFFF  '
-        }}>
-            <Box bgcolor={'#FFFFFF'}
-                margin={'5px 0'}
-            >
-                <Box color={''} sx={{
-                    alignItems: 'center',
-                    margin: ' 0 auto',
-                    width: '730px',
-                    display: 'flex',
-                    justifyContent: 'end',
-                    textAlign: 'center',
-                    padding: '10px 0'
-
-                }}>
-                    <Typography fontSize={15} sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        textAlign: 'center',
+        <>
+            <Box display={'flex'} flexDirection={'column'} sx={{
+                bgcolor: '#FFFFFF  ',
+                display: {
+                    md: 'block', lg: 'block', sm: 'none', xs: 'none'
+                },
+            }}>
+                <Box bgcolor={'#FFFFFF'}
+                    margin={'5px 0'}
+                >
+                    <Box color={''} sx={{
                         alignItems: 'center',
-                    }}>
-                        <img style={{
-                            height: '35px',
-                            width: '41px',
-                        }} src="https://clonesnew.com/public/faces/javax.faces.resource/images/hotline.svg" alt="" />
-                        0355275555
-                    </Typography>
-
-                    <Typography fontSize={15} ml={2} sx={{
+                        margin: ' 0 auto',
+                        width: '730px',
                         display: 'flex',
-                        justifyContent: 'center',
+                        justifyContent: 'end',
                         textAlign: 'center',
-                        alignItems: 'center',
+                        padding: '10px 0'
+
                     }}>
-                        <img style={{
-                            height: '35px',
-                            width: '41px',
-                        }} src="https://clonesnew.com/public/faces/javax.faces.resource/images/email.svg" alt="" />
-                        cuti29200029@gmail.com
-                    </Typography>
+                        <Typography fontSize={15} sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <img style={{
+                                height: '35px',
+                                width: '41px',
+                            }} src="https://clonesnew.com/public/faces/javax.faces.resource/images/hotline.svg" alt="" />
+                            0355275555
+                        </Typography>
+
+                        <Typography fontSize={15} ml={2} sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <img style={{
+                                height: '35px',
+                                width: '41px',
+                            }} src="https://clonesnew.com/public/faces/javax.faces.resource/images/email.svg" alt="" />
+                            cuti29200029@gmail.com
+                        </Typography>
+                    </Box>
                 </Box>
-            </Box>
-            <Box bgcolor={'#FFFFFF'} >
-                <Box display={'flex'} flexDirection={'column'}>
-                    <Box margin={'0 auto'} display={'flex'}>
-                        <Box bgcolor={'#262626'}
-                            sx={{
+                <Box bgcolor={'#FFFFFF'} >
+                    <Box display={'flex'} flexDirection={'column'}>
+                        <Box margin={'0 auto'} display={'flex'}>
+                            <Box bgcolor={'#262626'}
+                                sx={{
 
-                                width: '260px',
-                                paddingTop: '50px',
-                                padding: '50px 15px'
+                                    width: '260px',
+                                    paddingTop: '50px',
+                                    padding: '50px 15px'
 
 
-                            }}
-                        >
-                            <Button variant="text" >
+                                }}
+                            >
+                                <Button variant="text" >
 
-                                <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
-                            </Button>
-                            <List sx={{
-                                color: 'white'
-                            }}>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                    <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
+                                </Button>
+                                <List sx={{
+                                    color: 'white'
+                                }}>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <AccountBalanceIcon />
-                                        </ListItemIcon>
-                                        <p>Ngân Hàng <br /> <span>MB</span>
-                                        </p>
-                                        <ListItemText primary="
-                                        " />
-                                    </ListItemButton>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <AccountBalanceIcon />
+                                            </ListItemIcon>
+                                            <p>Ngân Hàng <br /> <span>MB</span>
+                                            </p>
+                                            <ListItemText primary="
+                                    " />
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <CreditCardIcon />
-                                        </ListItemIcon>
-                                        <p>
-                                            Số tài khoản  <br /> <span style={{
-                                                color: 'greenyellow'
-                                            }}>104567890</span>
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <CreditCardIcon />
+                                            </ListItemIcon>
+                                            <p>
+                                                Số tài khoản  <br /> <span style={{
+                                                    color: 'greenyellow'
+                                                }}>104567890</span>
 
-                                        </p>
+                                            </p>
 
-                                        <ListItemText primary="" />
-                                    </ListItemButton>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                            <ListItemText primary="" />
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <PermIdentityIcon />
-                                        </ListItemIcon>
-                                        <p>Chủ tài khoản <br /> <span>TRAN LE HUY HOANG</span>
-                                        </p>
-                                        <ListItemText primary=" " />
-                                    </ListItemButton>
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <PermIdentityIcon />
+                                            </ListItemIcon>
+                                            <p>Chủ tài khoản <br /> <span>TRAN LE HUY HOANG</span>
+                                            </p>
+                                            <ListItemText primary=" " />
+                                        </ListItemButton>
 
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <LocalAtmIcon />
-                                        </ListItemIcon>
-                                        <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{state && formatCurrency(Number(state[1].name))}</span>
-                                        </p>
-                                        <ListItemText />
-                                    </ListItemButton>
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <LocalAtmIcon />
+                                            </ListItemIcon>
+                                            <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{state && formatCurrency(Number(state[1].name))}</span>
+                                            </p>
+                                            <ListItemText />
+                                        </ListItemButton>
 
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <MapsUgcIcon />
-                                        </ListItemIcon>
-                                        <p>Nội dung chuyển khoản <br /> <span style={{
-                                            color: 'yellow'
-                                        }}> {state && state[0].name}</span>
-                                        </p>
-                                        <ListItemText primary=" " />
-                                    </ListItemButton>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <MapsUgcIcon />
+                                            </ListItemIcon>
+                                            <p>Nội dung chuyển khoản <br /> <span style={{
+                                                color: 'yellow'
+                                            }}> {state && state[0].name}</span>
+                                            </p>
+                                            <ListItemText primary=" " />
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{
 
-                                        fontSize: '15px'
-                                    }}>
-                                        <ListItemIcon sx={{
-                                            color: 'white'
+                                            fontSize: '15px'
                                         }}>
-                                            <HourglassBottomIcon />
-                                        </ListItemIcon>
-                                        <p>Trạng thái <br /> <span>Đang chờ thanh toán</span>
-                                        </p>
-                                        <ListItemText primary="" />
-                                    </ListItemButton>
-                                </ListItem>
-                            </List>
+                                            <ListItemIcon sx={{
+                                                color: 'white'
+                                            }}>
+                                                <HourglassBottomIcon />
+                                            </ListItemIcon>
+                                            <p>Trạng thái <br /> <span>Đang chờ thanh toán</span>
+                                            </p>
+                                            <ListItemText primary="" />
+                                        </ListItemButton>
+                                    </ListItem>
+                                </List>
+                            </Box>
+                            <Box bgcolor={'#FFFFFF'} width={'500px'} p={2} textAlign={'center'}>
+                                <Typography fontSize={32} sx={{
+                                    background: '-webkit-linear-gradient(60deg, #43cea2, #185a9d)',
+                                    '-webkit-background-clip': 'text',
+                                    '-webkit-text-fill-color': 'transparent',
+                                }}>
+                                    QUÉT MÃ QR ĐỂ THANH TOÁN
+                                </Typography>
+                                <Typography fontSize={16} sx={{
+
+                                }}>
+                                    Sử dụng <strong>App Internet Banking</strong> hoặc ứng dụng camera hỗ trợ QR code để quét mã
+                                </Typography>
+                                <img src={datas && datas} alt="" srcset="" style={{
+                                    width: '80%'
+                                }} />
+                            </Box>
                         </Box>
-                        <Box bgcolor={'#FFFFFF'} width={'500px'} p={2} textAlign={'center'}>
-                            <Typography fontSize={32} sx={{
-                                background: '-webkit-linear-gradient(60deg, #43cea2, #185a9d)',
-                                '-webkit-background-clip': 'text',
-                                '-webkit-text-fill-color': 'transparent',
-                            }}>
-                                QUÉT MÃ QR ĐỂ THANH TOÁN
-                            </Typography>
-                            <Typography fontSize={16} sx={{
+                        <Box margin={'0 auto'} mb={10} display={'flex'} bgcolor={'#FFFFFF'} width={'807px'} flexDirection={'column'} textAlign={'center'}>
+                            <Typography fontSize={16} mt={2} sx={{
 
                             }}>
-                                Sử dụng <strong>App Internet Banking</strong> hoặc ứng dụng camera hỗ trợ QR code để quét mã
+                                Vui lòng thanh toán vào thông tin tài khoản trên để hệ thống xử lý hoá đơn tự động.
                             </Typography>
-                            <img src={datas && datas} alt="" srcset="" style={{
-                                width: '80%'
-                            }} />
+                            <Button variant="text" href='/ngan-hang'> <ArrowBackIcon /> Quay Lại</Button>
+
                         </Box>
                     </Box>
-                    <Box margin={'0 auto'} mb={10} display={'flex'} bgcolor={'#FFFFFF'} width={'807px'} flexDirection={'column'} textAlign={'center'}>
+                </Box>
+            </Box >
+            <Box sx={{
+                display: {
+                    md: 'none', lg: 'none', sm: 'block', xs: 'block'
+                },
+            }
+            }>
+                <Box margin={'0 auto'} display={'flex'} flexDirection={'column'}>
+                    <Box bgcolor={'#262626'}
+                        sx={{
+
+
+                            paddingTop: '50px',
+                            padding: '50px 15px'
+
+
+                        }}
+                    >
+                        <Button variant="text" >
+
+                            <img style={{
+                                width: '100%'
+                            }} src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
+                        </Button>
+                        <List sx={{
+                            color: 'white'
+                        }}>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <AccountBalanceIcon />
+                                    </ListItemIcon>
+                                    <p>Ngân Hàng <br /> <span>MB</span>
+                                    </p>
+                                    <ListItemText primary="
+                    " />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <CreditCardIcon />
+                                    </ListItemIcon>
+                                    <p>
+                                        Số tài khoản  <br /> <span style={{
+                                            color: 'greenyellow'
+                                        }}>104567890</span>
+
+                                    </p>
+
+                                    <ListItemText primary="" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <PermIdentityIcon />
+                                    </ListItemIcon>
+                                    <p>Chủ tài khoản <br /> <span>TRAN LE HUY HOANG</span>
+                                    </p>
+                                    <ListItemText primary=" " />
+                                </ListItemButton>
+
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <LocalAtmIcon />
+                                    </ListItemIcon>
+                                    <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{state && formatCurrency(Number(state[1].name))}</span>
+                                    </p>
+                                    <ListItemText />
+                                </ListItemButton>
+
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <MapsUgcIcon />
+                                    </ListItemIcon>
+                                    <p>Nội dung chuyển khoản <br /> <span style={{
+                                        color: 'yellow'
+                                    }}> {state && state[0].name}</span>
+                                    </p>
+                                    <ListItemText primary=" " />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton sx={{
+
+                                    fontSize: '15px'
+                                }}>
+                                    <ListItemIcon sx={{
+                                        color: 'white'
+                                    }}>
+                                        <HourglassBottomIcon />
+                                    </ListItemIcon>
+                                    <p>Trạng thái <br /> <span>Đang chờ thanh toán</span>
+                                    </p>
+                                    <ListItemText primary="" />
+                                </ListItemButton>
+                            </ListItem>
+                        </List>
+                    </Box>
+                    <Box bgcolor={'#FFFFFF'} p={2} textAlign={'center'}>
+                        <Typography fontSize={32} sx={{
+                            background: '-webkit-linear-gradient(60deg, #43cea2, #185a9d)',
+                            '-webkit-background-clip': 'text',
+                            '-webkit-text-fill-color': 'transparent',
+                        }}>
+                            QUÉT MÃ QR ĐỂ THANH TOÁN
+                        </Typography>
+                        <Typography fontSize={16} sx={{
+
+                        }}>
+                            Sử dụng <strong>App Internet Banking</strong> hoặc ứng dụng camera hỗ trợ QR code để quét mã
+                        </Typography>
+                        <img src={datas && datas} alt="" srcset="" style={{
+                            width: '80%'
+                        }} />
+                    </Box>
+                    </Box>
+                    <Box margin={'0 auto'} mb={10} display={'flex'} bgcolor={'#FFFFFF'}  flexDirection={'column'} textAlign={'center'}>
                         <Typography fontSize={16} mt={2} sx={{
 
                         }}>
@@ -250,9 +412,8 @@ const Hoadon = () => {
                         <Button variant="text" href='/ngan-hang'> <ArrowBackIcon /> Quay Lại</Button>
 
                     </Box>
-                </Box>
             </Box>
-        </Box >
+        </>
     )
 }
 

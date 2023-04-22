@@ -17,6 +17,7 @@ import { useState } from 'react';
 import Nav2 from './components/Nav2';
 import Nganhang from './components/Nganhang';
 import Hoadon from './components/Hoadon';
+import Dangki from './components/Dangki';
 function App() {
   const [menu, setmenu] = useState();
   return (
@@ -55,6 +56,9 @@ function App() {
         } />
         <Route path="/dang-nhap" element={
           <Dangnhap />
+        } />
+        <Route path="/dang-ki" element={
+          <Dangki />
         } />
       </Routes>
     </BrowserRouter>
