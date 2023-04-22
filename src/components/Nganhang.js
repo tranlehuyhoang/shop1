@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -44,13 +44,28 @@ const style = {
     border: '0'
 };
 const Nganhang = () => {
+    const { pathname } = useLocation();
+
+    const navigate = useNavigate();
+
+    function checkF5KeyPress(event) {
+        if ((event.keyCode === 116) || (event.key === "F5")) {
+            event.preventDefault();
+        }
+    }
+
 
     const [userss, setsuser] = useState(undefined);
 
 
     useEffect(() => {
-        setsuser(localStorage.getItem("email"))
-        console.log(userss)
+        console.log(pathname)
+        if (pathname !== '') {
+
+            window.onbeforeunload = function () {
+                return "đồng ý mất hết dữ liệu"
+            }
+        }
     }, []);
 
     // Lấy dữ liệu

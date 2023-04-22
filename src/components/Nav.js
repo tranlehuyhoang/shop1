@@ -44,10 +44,12 @@ const Nav = () => {
                 },
 
             }}>
-                <Button variant="text" href='/'>
+                <Link to={'/'}>
+                    <Button variant="text" >
 
-                    <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
-                </Button>
+                        <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
+                    </Button>
+                </Link>
 
                 <List>
                     <ListItem disablePadding>

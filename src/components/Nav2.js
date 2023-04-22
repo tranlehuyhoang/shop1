@@ -54,10 +54,12 @@ const Nav2 = ({ menu, setmenu }) => {
 
             }}>
 
-                <Button variant="text" href='/'>
+                <Link to={'/'}>
+                    <Button variant="text" >
 
-                    <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
-                </Button>
+                        <img src="https://clonesnew.com/assets/storage/images/logo_dark_H7W.png" alt="" />
+                    </Button>
+                </Link>
                 <CloseIcon onClick={e => { setmenu('none') }} />
                 <List>
                     <ListItem disablePadding>
@@ -148,26 +150,46 @@ const Nav2 = ({ menu, setmenu }) => {
                     Nạp Tiền
                 </Typography>
                 <List>
-                    <ListItem disablePadding>
-                        <ListItemButton href='/ngan-hang'>
-                            <ListItemIcon >
-                                <AccountBalanceIcon sx={{
-                                    color: 'white'
-                                }} />
-                            </ListItemIcon>
-                            <ListItemText primary="Ngân Hàng" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon >
-                                <ReceiptLongIcon sx={{
-                                    color: 'white'
-                                }} />
-                            </ListItemIcon>
-                            <ListItemText primary="Hóa Đơn" />
-                        </ListItemButton>
-                    </ListItem>
+                    {pathname == '/ngan-hang'
+
+                        ?
+                        <Link to="/ngan-hang" style={{
+                            color: 'white',
+                            textDecoration: 'none'
+                        }}>
+                            <ListItem disablePadding sx={{
+                                bgcolor: '#3b3d3f',
+                                borderRadius: '10px'
+                            }}>
+                                <ListItemButton href='/ngan-hang'>
+                                    <ListItemIcon >
+                                        <AccountBalanceIcon sx={{
+                                            color: 'white'
+                                        }} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Ngân Hàng" />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+                        :
+                        <Link to="/ngan-hang" style={{
+                            color: 'white',
+                            textDecoration: 'none'
+                        }}>
+
+                            <ListItem disablePadding>
+                                <ListItemButton href='/ngan-hang'>
+                                    <ListItemIcon >
+                                        <AccountBalanceIcon sx={{
+                                            color: 'white'
+                                        }} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Ngân Hàng" />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+                    }
+
                 </List>
                 <Typography variant="h6" fontSize={15} gutterBottom>
                     Khác
