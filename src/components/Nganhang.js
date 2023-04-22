@@ -232,49 +232,52 @@ const Nganhang = () => {
                 overflowY: 'scroll',
                 flexDirection: 'column',
                 textAlign: 'center',
+                width:'100%'
 
 
             }} bgcolor={'#222222'} height={'1000px'} >
 
 
-                <Box position={'relative'} p={2} sx={{
-                    border: '1px solid #1976d2',
-                    flex: '1', display: 'flex', flexDirection: 'column',
-                    backgroundColor: '#181818',
-                    textAlign: 'start',
-                    color: '#c7cbd3!important'
-                }} variant="outlined">
+                <Box>
+                    <Box position={'relative'} p={2} sx={{
+                        border: '1px solid #1976d2',
+                        flex: '1', display: 'flex', flexDirection: 'column',
+                        backgroundColor: '#181818',
+                        textAlign: 'start',
+                        color: '#c7cbd3!important'
+                    }} variant="outlined">
 
-                    <Typography variant="h6" gutterBottom fontSize={16}>
-                        Vui lòng nhập đúng nội dung CHUYỂN, cộng tiền sau 1 phút - 10 phút
-                        <br />
-                        Nếu nhập sai nội dung sẽ bị trừ 10% giá trị nạp
-                        <br />
+                        <Typography variant="h6" gutterBottom fontSize={16}>
+                            Vui lòng nhập đúng nội dung CHUYỂN, cộng tiền sau 1 phút - 10 phút
+                            <br />
+                            Nếu nhập sai nội dung sẽ bị trừ 10% giá trị nạp
+                            <br />
 
-                        Nếu hệ thống không cộng tiền sau 10p hãy liên hệ Zalo: 0866720209 hoặc call 0355275555
-
-
-                    </Typography>
+                            Nếu hệ thống không cộng tiền sau 10p hãy liên hệ Zalo: 0337799453 hoặc call 0337799453
 
 
-                </Box>
-                <Box mb={80} mt={2} p={2} sx={{
-                    flex: '2',
-                    backgroundColor: '#181818',
-                    textAlign: 'start',
-
-                }} variant="outlined">
-                    <Typography variant="h5" gutterBottom >
-                        Nạp tiền theo hoá đơn
+                        </Typography>
 
 
-                    </Typography>
-                    <Button variant="text" onClick={e => { setstate1(true) }}>
-                        <img style={{
-                            margin: '50px'
-                        }} src="https://inkythuatso.com/uploads/thumbnails/800/2021/11/mb-bank-logo-inkythuatso-01-10-09-02-50.jpg" alt="" />
+                    </Box>
+                    <Box mb={80} mt={2} p={2} sx={{
+                        flex: '2',
+                        backgroundColor: '#181818',
+                        textAlign: 'start',
 
-                    </Button>
+                    }} variant="outlined">
+                        <Typography variant="h5" gutterBottom >
+                            Nạp tiền theo hoá đơn
+
+
+                        </Typography>
+                        <Button variant="text" onClick={e => { setstate1(true) }}>
+                            <img style={{
+                                margin: '50px'
+                            }} src="https://inkythuatso.com/uploads/thumbnails/800/2021/11/mb-bank-logo-inkythuatso-01-10-09-02-50.jpg" alt="" />
+
+                        </Button>
+                    </Box>
                 </Box>
                 <Footer />
 

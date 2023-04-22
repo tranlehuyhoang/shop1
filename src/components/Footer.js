@@ -3,10 +3,10 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <Box position={'absolute'} bottom={0} sx={{
+        <Box position={'fixed'} bottom={0} sx={{
 
             width: {
-                md: '97%', lg: 'calc(100% - 360px)', sm: '97%', xs: '97%'
+                md: '100%', lg: '100%', sm: '100%', xs: '100%'
             },
         }} bgcolor={'black'} p={2} display={'flex'} justifyContent={'space-between'}>
             <Typography variant="h6" gutterBottom gap={1} color={'white'} sx={{ fontSize: '13px' }}>
