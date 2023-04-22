@@ -1,14 +1,6 @@
 import Box from '@mui/material/Box';
-
 import Dangnhap from './components/Dangnhap';
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
-
-
-
 import './App.css';
 import Nav from './components/Nav';
 import Head from './components/Head';
@@ -18,10 +10,11 @@ import Nav2 from './components/Nav2';
 import Nganhang from './components/Nganhang';
 import Hoadon from './components/Hoadon';
 import Dangki from './components/Dangki';
+
 function App() {
   const [menu, setmenu] = useState();
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shop1">
       <Routes>
         <Route path="/" element={
           <Box color={'white'} display={'flex'} height={'100vh'}
