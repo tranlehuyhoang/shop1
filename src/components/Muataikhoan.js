@@ -22,16 +22,16 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
     bgcolor: '#222222',
     border: '2px solid #000',
     color: 'white',
     boxShadow: 24,
     p: '10px 0',
-    border: '0'
-};
-const Muataikhoan = () => {
+    border: '0',
+    width: '100%',
 
+};
+const Muataikhoan = ({ menu, setmenu }) => {
     useEffect(() => {
         setstate(true)
     }, []);
@@ -63,8 +63,13 @@ const Muataikhoan = () => {
                 open={state}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                sx={{
+                    margin: '20px'
+                }}
             >
-                <Box sx={style} p={2}>
+                <Box sx={style} maxWidth={400} p={2}
+
+                >
                     <Typography id="modal-modal-title" variant="h6" component="h2" p={2}>
                         Thông báo
                     </Typography>
@@ -100,196 +105,201 @@ const Muataikhoan = () => {
 
                 </Box>
             </Modal >
-            <Box onClick={e => { setstate(false) }} mt={2} display={'flex'} sx={{
-                overflowY: 'scroll',
-                flexDirection: 'column',
-                textAlign: 'center',
+
+            <Box position={'relative'} width={'100%'}
+                onClick={e => { setmenu('none') }}
+            >
+                <Box onClick={e => { setstate(false) }} mt={2} display={'flex'} sx={{
+                    overflowY: 'scroll',
+                    flexDirection: 'column',
+                    textAlign: 'center',
 
 
-            }} bgcolor={'#222222'} height={'1000px'} >
+                }} bgcolor={'#222222'} height={'1000px'} >
 
 
-                <Box>
-                    <Box position={'relative'} sx={{
-                        border: '1px solid #1976d2',
-                        flex: '1', display: 'flex', flexDirection: 'column',
-                        backgroundColor: '#181818'
-                    }} variant="outlined">
-                        <Typography variant="h6" gutterBottom gap={1} color={'#8e44ad'}>
-                            VUI LÒNG BANK MB  ĐỂ AUTO NHÉ
-                            😘
-                        </Typography>
-                        <Typography variant="h6" gutterBottom color={'#27ae60'} fontSize={16}>
-                            CLONESNEW.COM - Cam kết cung cấp hàng clone uy tín và chuyên nghiệp
-                        </Typography>
-                        <Typography variant="h6" gutterBottom color={'#27ae60'} fontSize={16}>
-                            Mọi danh mục clone đều có ghi chú rõ ràng về các kiểu xuất file
-                        </Typography>
-                        <Typography variant="h6" gutterBottom fontSize={16}>
-                            <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Zalo hỗ trợ :</span> 0337799453
-                            <br />
-                            <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Hotline hỗ trợ:</span> 0337799453
-                        </Typography>
-                        <Typography variant="h6" gutterBottom>
-                            Lưu Ý:
-                        </Typography>
+                    <Box position={'relative'}>
+                        <Box position={'relative'} sx={{
+                            border: '1px solid #1976d2',
+                            flex: '1', display: 'flex', flexDirection: 'column',
+                            backgroundColor: '#181818'
+                        }} variant="outlined">
+                            <Typography variant="h6" gutterBottom gap={1} color={'#8e44ad'}>
+                                VUI LÒNG BANK MB  ĐỂ AUTO NHÉ
+                                😘
+                            </Typography>
+                            <Typography variant="h6" gutterBottom color={'#27ae60'} fontSize={16}>
+                                CLONESNEW.COM - Cam kết cung cấp hàng clone uy tín và chuyên nghiệp
+                            </Typography>
+                            <Typography variant="h6" gutterBottom color={'#27ae60'} fontSize={16}>
+                                Mọi danh mục clone đều có ghi chú rõ ràng về các kiểu xuất file
+                            </Typography>
+                            <Typography variant="h6" gutterBottom fontSize={16}>
+                                <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Zalo hỗ trợ :</span> 0337799453
+                                <br />
+                                <span style={{ backgroundColor: '#f1c40f' }} fontSize={16}>Hotline hỗ trợ:</span> 0337799453
+                            </Typography>
+                            <Typography variant="h6" gutterBottom>
+                                Lưu Ý:
+                            </Typography>
 
-                        <Typography variant="h6" gutterBottom fontSize={16}>
-                            Để tránh lấy mất tiền và clone các bạn vui lòng không đặt tài khoản hoặc mật khẩu trùng với web khác
-                            <br />
-                            Khuyến cáo nên mua đủ sài, Clone được checklive trước khi xuất file, không có chính sách bảo hành
-                        </Typography>
-                        <Typography variant="h6" gutterBottom fontSize={16}>
-                            Rất cảm ơn các bạn đã và đang ủng hộ CLONESNEW.COM, rất mong rằng sẽ phục vụ các bạn tốt nhất 💖
-                        </Typography>
-                        <Typography variant="h4" gutterBottom color={'#8e44ad'}>
-                            XÓA DATA ĐƠN HÀNG SAU 5 NGÀY KỂ TỪ NGÀY MUA AE LƯU Ý
-                        </Typography>
+                            <Typography variant="h6" gutterBottom fontSize={16}>
+                                Để tránh lấy mất tiền và clone các bạn vui lòng không đặt tài khoản hoặc mật khẩu trùng với web khác
+                                <br />
+                                Khuyến cáo nên mua đủ sài, Clone được checklive trước khi xuất file, không có chính sách bảo hành
+                            </Typography>
+                            <Typography variant="h6" gutterBottom fontSize={16}>
+                                Rất cảm ơn các bạn đã và đang ủng hộ CLONESNEW.COM, rất mong rằng sẽ phục vụ các bạn tốt nhất 💖
+                            </Typography>
+                            <Typography variant="h4" gutterBottom color={'#8e44ad'}>
+                                XÓA DATA ĐƠN HÀNG SAU 5 NGÀY KỂ TỪ NGÀY MUA AE LƯU Ý
+                            </Typography>
 
-                    </Box>
-                    <Box mb={80} sx={{
-                        flex: '2'
-                    }} variant="outlined">
-                        <TableContainer component={Paper} sx={{ margin: '10px 0' }}>
-                            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                                <TableHead>
-                                    <TableRow>
-                                        <StyledTableCell sx={{ alignItems: 'center', display: 'flex' }}>
-                                            <img src="https://clonesnew.com/assets/storage/images/categoryQVJ1.png" style={{ width: '30px' }} ></img>
-                                            CLONE FACEBOOK</StyledTableCell>
-                                        <StyledTableCell align="center">Quốc gia	</StyledTableCell>
-                                        <StyledTableCell align="center">Hiện có</StyledTableCell>
-                                        <StyledTableCell align="center">Đã bán</StyledTableCell>
-                                        <StyledTableCell align="center">Giá</StyledTableCell>
-                                        <StyledTableCell align="center">Thao tác</StyledTableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
+                        </Box>
+                        <Box mb={80} sx={{
+                            flex: '2'
+                        }} variant="outlined">
+                            <TableContainer component={Paper} sx={{ margin: '10px 0' }}>
+                                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                                    <TableHead>
+                                        <TableRow>
+                                            <StyledTableCell sx={{ alignItems: 'center', display: 'flex' }}>
+                                                <img src="https://clonesnew.com/assets/storage/images/categoryQVJ1.png" style={{ width: '30px' }} ></img>
+                                                CLONE FACEBOOK</StyledTableCell>
+                                            <StyledTableCell align="center">Quốc gia	</StyledTableCell>
+                                            <StyledTableCell align="center">Hiện có</StyledTableCell>
+                                            <StyledTableCell align="center">Đã bán</StyledTableCell>
+                                            <StyledTableCell align="center">Giá</StyledTableCell>
+                                            <StyledTableCell align="center">Thao tác</StyledTableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
 
-                                    <StyledTableRow >
-                                        <StyledTableCell align="center">
-                                            <Typography variant="h6" gutterBottom fontSize={12} textAlign={'left'} color={'white'}>
-                                                <img src="https://clonesnew.com/assets/storage/images/categoryQVJ1.png" style={{ width: '20px' }} ></img>
+                                        <StyledTableRow >
+                                            <StyledTableCell align="center">
+                                                <Typography variant="h6" gutterBottom fontSize={12} textAlign={'left'} color={'white'}>
+                                                    <img src="https://clonesnew.com/assets/storage/images/categoryQVJ1.png" style={{ width: '20px' }} ></img>
 
-                                                Clone Ngoại Ramdom IP Ngoại ( Băm Ads - BM ) <br />
-                                                ✅Định dạng: UID|PASS|2FA||TOKEN EAAAU|COOKIE|MAIL(hàng new 100% chưa đụng - chưa log ip việt ) NAME US - IP Ngoại - 2FA <br /> - Ver Mail Hàng Băm ADS, REG BM (Chuyên Băm ADS )
-                                            </Typography>
+                                                    Clone Ngoại Ramdom IP Ngoại ( Băm Ads - BM ) <br />
+                                                    ✅Định dạng: UID|PASS|2FA||TOKEN EAAAU|COOKIE|MAIL(hàng new 100% chưa đụng - chưa log ip việt ) NAME US - IP Ngoại - 2FA <br /> - Ver Mail Hàng Băm ADS, REG BM (Chuyên Băm ADS )
+                                                </Typography>
 
-                                        </StyledTableCell>
-                                        <StyledTableCell component="th" scope="row" sx={{ color: 'white', textTransform: 'none' }}>
-                                            <img src="https://flagicons.lipis.dev/flags/4x3/us.svg" style={{ width: '20px' }} ></img>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>
-                                            <Button variant="outlined" size="small" sx={{
-                                                color: 'white', border: '1px solid #19b3b3',
+                                            </StyledTableCell>
+                                            <StyledTableCell component="th" scope="row" sx={{ color: 'white', textTransform: 'none' }}>
+                                                <img src="https://flagicons.lipis.dev/flags/4x3/us.svg" style={{ width: '20px' }} ></img>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>
+                                                <Button variant="outlined" size="small" sx={{
+                                                    color: 'white', border: '1px solid #19b3b3',
+                                                    ":hover": {
+                                                        bgcolor: '#19b3b3',
+                                                        border: '1px solid #19b3b3'
+
+                                                    }
+                                                }}>
+                                                    <ShoppingCartIcon sx={{ color: 'white', fontSize: '11px' }} /> 7.881
+                                                </Button>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ textAlign: 'center', color: 'white' }}>    <Button sx={{
+                                                color: 'white', textTransform: 'none', display: 'flex', flexWrap: 'wrap', alignItems: "center", border: '1px #3cb72c solid',
                                                 ":hover": {
-                                                    bgcolor: '#19b3b3',
-                                                    border: '1px solid #19b3b3'
-
+                                                    bgcolor: '#3cb72c',
+                                                    border: '1px solid #3cb72c'
                                                 }
-                                            }}>
-                                                <ShoppingCartIcon sx={{ color: 'white', fontSize: '11px' }} /> 7.881
-                                            </Button>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ textAlign: 'center', color: 'white' }}>    <Button sx={{
-                                            color: 'white', textTransform: 'none', display: 'flex', flexWrap: 'wrap', alignItems: "center", border: '1px #3cb72c solid',
-                                            ":hover": {
-                                                bgcolor: '#3cb72c',
-                                                border: '1px solid #3cb72c'
                                             }
-                                        }
-                                        } variant="outlined" size="small">
-                                            <span style={{ display: 'flex', alignItems: 'center' }}> <AddShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />Đã bán:</span> <span >73.476</span>
-                                        </Button></StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>     <Button sx={{
-                                            color: 'white', textTransform: 'none', border: '1px solid #f42b3d',
-                                            ":hover": {
-                                                bgcolor: '#f42b3d',
-                                                border: '1px solid #f42b3d'
-                                            }
-                                        }} variant="outlined" size="small">
-                                            <LocalAtmIcon sx={{ color: 'white', fontSize: '14px' }} /> 5.000 đ
-                                        </Button></StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>   <Button sx={{ color: 'white', textTransform: 'none' }} variant="contained" size="small">
-                                            <ShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />MUA NGAY
-                                        </Button></StyledTableCell>
-                                    </StyledTableRow>
-
-                                </TableBody>
-                                <TableHead>
-                                    <TableRow>
-                                        <StyledTableCell sx={{ alignItems: 'center', display: 'flex' }}>
-                                            <img src="https://clonesnew.com/assets/storage/images/category9OH.png" style={{ width: '30px' }} ></img>
-                                            CLONE TIKTOK</StyledTableCell>
-                                        <StyledTableCell align="center">Quốc gia	</StyledTableCell>
-                                        <StyledTableCell align="center">Hiện có</StyledTableCell>
-                                        <StyledTableCell align="center">Đã bán</StyledTableCell>
-                                        <StyledTableCell align="center">Giá</StyledTableCell>
-                                        <StyledTableCell align="center">Thao tác</StyledTableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-
-                                    <StyledTableRow >
-                                        <StyledTableCell align="center">
-                                            <Typography variant="h6" gutterBottom fontSize={12} textAlign={'left'} color={'white'}>
-                                                <img src=" 
-                                 https://clonesnew.com/assets/storage/images/category9OH.png
-                                 " style={{ width: '20px' }} ></img>
-
-                                                CLONE TIKTOK - Hàng Ngâm Tháng 5/2022 Không Hỗ Trợ Đặt Đơn <br />
-                                                ✅Định Dạng : ID|Pass (Không Bảo Hành) mua vừa đủ dùng - test trước khi mua sll hàng không bảo hành mã
-                                            </Typography>
-
-                                        </StyledTableCell>
-                                        <StyledTableCell component="th" scope="row" sx={{ color: 'white', textTransform: 'none' }}>
-                                            <img src="https://flagicons.lipis.dev/flags/4x3/vn.svg" style={{ width: '20px' }} ></img>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>
-                                            <Button variant="outlined" size="small" sx={{
-                                                color: 'white', border: '1px solid #19b3b3',
+                                            } variant="outlined" size="small">
+                                                <span style={{ display: 'flex', alignItems: 'center' }}> <AddShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />Đã bán:</span> <span >73.476</span>
+                                            </Button></StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>     <Button sx={{
+                                                color: 'white', textTransform: 'none', border: '1px solid #f42b3d',
                                                 ":hover": {
-                                                    bgcolor: '#19b3b3',
-                                                    border: '1px solid #19b3b3'
-
+                                                    bgcolor: '#f42b3d',
+                                                    border: '1px solid #f42b3d'
                                                 }
-                                            }}>
-                                                <ShoppingCartIcon sx={{ color: 'white', fontSize: '11px' }} /> 7.881
-                                            </Button>
-                                        </StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ textAlign: 'center', color: 'white' }}>    <Button sx={{
-                                            color: 'white', textTransform: 'none', display: 'flex', flexWrap: 'wrap', alignItems: "center", border: '1px #3cb72c solid',
-                                            ":hover": {
-                                                bgcolor: '#3cb72c',
-                                                border: '1px solid #3cb72c'
-                                            }
-                                        }
-                                        } variant="outlined" size="small">
-                                            <span style={{ display: 'flex', alignItems: 'center' }}> <AddShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />Đã bán:</span> <span >73.476</span>
-                                        </Button></StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>     <Button sx={{
-                                            color: 'white', textTransform: 'none', border: '1px solid #f42b3d',
-                                            ":hover": {
-                                                bgcolor: '#f42b3d',
-                                                border: '1px solid #f42b3d'
-                                            }
-                                        }} variant="outlined" size="small">
-                                            <LocalAtmIcon sx={{ color: 'white', fontSize: '14px' }} /> 5.000 đ
-                                        </Button></StyledTableCell>
-                                        <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none', fontSize: '11px' }}>   <Button sx={{ color: 'white', textTransform: 'none' }} variant="contained" size="small">
-                                            <ShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />MUA NGAY
-                                        </Button></StyledTableCell>
-                                    </StyledTableRow>
+                                            }} variant="outlined" size="small">
+                                                <LocalAtmIcon sx={{ color: 'white', fontSize: '14px' }} /> 5.000 đ
+                                            </Button></StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>   <Button sx={{ color: 'white', textTransform: 'none' }} variant="contained" size="small">
+                                                <ShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />MUA NGAY
+                                            </Button></StyledTableCell>
+                                        </StyledTableRow>
 
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                                    </TableBody>
+                                    <TableHead>
+                                        <TableRow>
+                                            <StyledTableCell sx={{ alignItems: 'center', display: 'flex' }}>
+                                                <img src="https://clonesnew.com/assets/storage/images/category9OH.png" style={{ width: '30px' }} ></img>
+                                                CLONE TIKTOK</StyledTableCell>
+                                            <StyledTableCell align="center">Quốc gia	</StyledTableCell>
+                                            <StyledTableCell align="center">Hiện có</StyledTableCell>
+                                            <StyledTableCell align="center">Đã bán</StyledTableCell>
+                                            <StyledTableCell align="center">Giá</StyledTableCell>
+                                            <StyledTableCell align="center">Thao tác</StyledTableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
 
+                                        <StyledTableRow >
+                                            <StyledTableCell align="center">
+                                                <Typography variant="h6" gutterBottom fontSize={12} textAlign={'left'} color={'white'}>
+                                                    <img src=" 
+                             https://clonesnew.com/assets/storage/images/category9OH.png
+                             " style={{ width: '20px' }} ></img>
+
+                                                    CLONE TIKTOK - Hàng Ngâm Tháng 5/2022 Không Hỗ Trợ Đặt Đơn <br />
+                                                    ✅Định Dạng : ID|Pass (Không Bảo Hành) mua vừa đủ dùng - test trước khi mua sll hàng không bảo hành mã
+                                                </Typography>
+
+                                            </StyledTableCell>
+                                            <StyledTableCell component="th" scope="row" sx={{ color: 'white', textTransform: 'none' }}>
+                                                <img src="https://flagicons.lipis.dev/flags/4x3/vn.svg" style={{ width: '20px' }} ></img>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>
+                                                <Button variant="outlined" size="small" sx={{
+                                                    color: 'white', border: '1px solid #19b3b3',
+                                                    ":hover": {
+                                                        bgcolor: '#19b3b3',
+                                                        border: '1px solid #19b3b3'
+
+                                                    }
+                                                }}>
+                                                    <ShoppingCartIcon sx={{ color: 'white', fontSize: '11px' }} /> 7.881
+                                                </Button>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ textAlign: 'center', color: 'white' }}>    <Button sx={{
+                                                color: 'white', textTransform: 'none', display: 'flex', flexWrap: 'wrap', alignItems: "center", border: '1px #3cb72c solid',
+                                                ":hover": {
+                                                    bgcolor: '#3cb72c',
+                                                    border: '1px solid #3cb72c'
+                                                }
+                                            }
+                                            } variant="outlined" size="small">
+                                                <span style={{ display: 'flex', alignItems: 'center' }}> <AddShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />Đã bán:</span> <span >73.476</span>
+                                            </Button></StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none' }}>     <Button sx={{
+                                                color: 'white', textTransform: 'none', border: '1px solid #f42b3d',
+                                                ":hover": {
+                                                    bgcolor: '#f42b3d',
+                                                    border: '1px solid #f42b3d'
+                                                }
+                                            }} variant="outlined" size="small">
+                                                <LocalAtmIcon sx={{ color: 'white', fontSize: '14px' }} /> 5.000 đ
+                                            </Button></StyledTableCell>
+                                            <StyledTableCell align="center" sx={{ color: 'white', textTransform: 'none', fontSize: '11px' }}>   <Button sx={{ color: 'white', textTransform: 'none' }} variant="contained" size="small">
+                                                <ShoppingCartIcon sx={{ color: 'white', fontSize: '14px' }} />MUA NGAY
+                                            </Button></StyledTableCell>
+                                        </StyledTableRow>
+
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+
+                        </Box>
                     </Box>
-                </Box>
+
+                </Box >
                 <Footer />
-
-            </Box >
+            </Box>
         </>
     )
 }

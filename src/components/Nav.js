@@ -25,9 +25,11 @@ const Nav = () => {
 
     return (
         <Box bgcolor={'#181818'} sx={{
+            zIndex: '99',
             display: {
                 md: 'none', lg: 'block', sm: 'none', xs: 'none'
             },
+
 
         }} width={400}>
             <Box position={'fixed'} sx={{

@@ -12,14 +12,18 @@ img {
 
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 .dangnhap {
-  width           : 100%;
-  height          : 100vh;
-  background-size : cover;
+  width          : 100%;
+  height         : 100vh;
+  background-size: cover;
 
   display         : flex;
   justify-content : center;

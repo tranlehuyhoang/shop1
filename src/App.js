@@ -30,9 +30,14 @@ function App() {
             }}
           >
             <Nav />
-            <Box display={'flex'} flexDirection={'column'} width={'100%'} >
+            <Box display={'flex'} flexDirection={'column'} width={'100%'}
+
+            >
               <Head menu={menu} setmenu={setmenu} />
-              <Muataikhoan />
+              <Muataikhoan
+                menu={menu} setmenu={setmenu}
+
+              />
               <Nav2 menu={menu} setmenu={setmenu} />
             </Box>
           </Box>
@@ -46,7 +51,7 @@ function App() {
             <Nav />
             <Box display={'flex'} flexDirection={'column'} width={'100%'} >
               <Head menu={menu} setmenu={setmenu} />
-              <Nganhang />
+              <Nganhang menu={menu} setmenu={setmenu} />
               <Nav2 menu={menu} setmenu={setmenu} />
             </Box>
           </Box>

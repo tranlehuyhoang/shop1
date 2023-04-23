@@ -83,11 +83,11 @@ const Dangki = () => {
                 pauseOnHover
                 theme="colored"
             />
-            <Box width={'330px'} borderRadius={3} bgcolor={"#181818"} color={'white'}
+            <Box maxWidth={400} borderRadius={3} bgcolor={"#181818"} color={'white'}
                 sx={{
-                    margin: 'auto auto',
+                    margin: '30px',
                     textAlign: 'center',
-                    padding: '30px 20px'
+                    padding: '30px 50px'
                 }}
             >
 

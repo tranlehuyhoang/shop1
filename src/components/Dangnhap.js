@@ -59,7 +59,7 @@ const Dangnhap = () => {
     return (
 
         <div className='dangnhap'
-
+         
         >
             <ToastContainer
                 position="top-right"
@@ -76,9 +76,9 @@ const Dangnhap = () => {
 
             <Box width={'330px'} borderRadius={3} bgcolor={"#181818"} color={'white'}
                 sx={{
-                    margin: 'auto auto',
                     textAlign: 'center',
-                    padding: '30px 20px'
+                    padding: '30px 20px',
+                    margin:'20px'
                 }}
             >
 

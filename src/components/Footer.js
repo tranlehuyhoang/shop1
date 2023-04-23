@@ -3,13 +3,14 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <Box position={'fixed'} bottom={0} sx={{
-
+        <Box position={'fixed'} bottom={0} right={0} sx={{
+            padding: '20px',
+           
             width: {
                 md: '100%', lg: '100%', sm: '100%', xs: '100%'
             },
-        }} bgcolor={'black'} p={2} display={'flex'} justifyContent={'space-between'}>
-            <Typography variant="h6" gutterBottom gap={1} color={'white'} sx={{ fontSize: '13px' }}>
+        }} bgcolor={'black'} display={'flex'} justifyContent={'space-between'}>
+            <Typography variant="h6" gutterBottom gap={1} color={'white'} ml={5} sx={{ fontSize: '13px' }}>
                 Chính sách bảo mật Điều khoản sử dụng
             </Typography>
             <Typography variant="h6" gutterBottom gap={1} color={'white'} sx={{ fontSize: '13px' }}>

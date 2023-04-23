@@ -43,7 +43,12 @@ const style = {
     p: '10px 0',
     border: '0'
 };
-const Nganhang = () => {
+
+const Nganhang = ({ menu, setmenu }) => {
+    const chinhstate = () => {
+        setmenu('none')
+        setstate(false)
+    }
     const { pathname } = useLocation();
 
     const navigate = useNavigate();
@@ -220,8 +225,12 @@ const Nganhang = () => {
 
 
 
-                        <Box display={'flex'} justifyContent={'space-between'}>
-                            <Box display={'flex'} flexDirection={'column'}>
+                        <Box
+
+                            display={'flex'} justifyContent={'space-between'}>
+                            <Box display={'flex'} flexDirection={'column'}
+
+                            >
                                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                                     Số tiền cần thanh toán
                                 </Typography>
@@ -275,14 +284,16 @@ const Nganhang = () => {
                 </Box>
             </Modal >
 
-            <Box onClick={e => { setstate(false) }} mt={2} p={2} display={'flex'} sx={{
-                overflowY: 'scroll',
-                flexDirection: 'column',
-                textAlign: 'center',
-                width: '100%'
+            <Box
+
+                onClick={chinhstate} mt={2} display={'flex'} sx={{
+                    overflowY: 'scroll',
+                    flexDirection: 'column',
+                    textAlign: 'center',
 
 
-            }} bgcolor={'#222222'} height={'1000px'} >
+
+                }} bgcolor={'#222222'} height={'1000px'} >
 
 
                 <Box>
