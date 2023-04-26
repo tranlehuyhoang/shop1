@@ -15,8 +15,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
+import $ from 'jquery';
 import Footer from './Footer';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Nav2 from './Nav2';
+import store from '../redux/Store';
+import { addhistory } from '../redux/Action';
+import { addData } from '../redux/Action';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -32,10 +38,26 @@ const style = {
 
 };
 const Muataikhoan = ({ menu, setmenu }) => {
-    useEffect(() => {
-        setstate(true)
-    }, []);
+    const [lichsu, sethistory] = useState([]);
     const [state, setstate] = useState(false);
+  
+    useEffect(() => {
+      $.get("https://subsieusale.000webhostapp.com", function (response) {
+        sethistory(JSON.parse(response).transactionHistoryList);
+      }).fail(function (error) {
+        console.error(error);
+      });
+    }, []);
+  
+    useEffect(() => {
+      if (lichsu.length > 0) {
+        const datass = { id: "history", name: lichsu };
+        store.dispatch(addData(datass));
+        setstate(true);
+      }
+    }, [lichsu]);
+    const currentState = store.getState();
+    console.log(currentState)
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {

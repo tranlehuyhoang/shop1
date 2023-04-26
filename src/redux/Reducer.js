@@ -1,7 +1,8 @@
-import { ADD_DATA, GET_DATA } from './Action';
+import { ADD_DATA, GET_DATA, ADD_DATA_TO_HISTORY } from './Action';
 
 const initialState = {
-    data: []
+    data: [],
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const reducer = (state = initialState, action) => {
                 data: Object.values(dataById),
                 dataById
             };
+
         case GET_DATA:
             return state;
         default:

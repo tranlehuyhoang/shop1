@@ -21,14 +21,24 @@ import MailIcon from '@mui/icons-material/Mail'
 import Nav2 from './Nav2';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
+import axios from 'axios';
 
 const Head = ({ menu, setmenu }) => {
     const { location } = window;
+    const hehehhe = () => {
+
+    }
+
+    useEffect(() => {
+
+    }, []);
     const handlelogout = () => {
         localStorage.removeItem("email");
         location.reload();
     }
+
     useEffect(() => {
+
         setstate(localStorage.getItem("email") || '')
     }, []);
     const [state, setstate] = useState();
@@ -94,9 +104,11 @@ const Head = ({ menu, setmenu }) => {
                                 }
                             }}
                         />
-                        <Button variant="outlined" sx={{
-                            color: '#3378ff'
-                        }}>
+                        <Button
+                            onClick={hehehhe}
+                            variant="outlined" sx={{
+                                color: '#3378ff'
+                            }}>
                             <AddCardIcon sx={{
                                 color: 'white',
                                 padding: '0 10px'

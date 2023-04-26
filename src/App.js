@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Dangnhap from './components/Dangnhap';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-
+import PaymentScanner from './thanhtoan/PaymentScanner ';
 
 
 
@@ -16,6 +16,7 @@ import Muataikhoan from './components/Muataikhoan';
 import { useEffect, useState } from 'react';
 import Nav2 from './components/Nav2';
 import Nganhang from './components/Nganhang';
+
 import Hoadon from './components/Hoadon';
 import Dangki from './components/Dangki';
 function App() {
@@ -38,6 +39,7 @@ function App() {
                 menu={menu} setmenu={setmenu}
 
               />
+              <PaymentScanner />
               <Nav2 menu={menu} setmenu={setmenu} />
             </Box>
           </Box>
@@ -57,7 +59,9 @@ function App() {
           </Box>
         } />
         <Route path="/hoa-don" element={
-          <Hoadon />
+          <Box>
+            <Hoadon />
+          </Box>
         } />
         <Route path="/dang-nhap" element={
           <Dangnhap />

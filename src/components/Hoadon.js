@@ -43,7 +43,7 @@ const Hoadon = () => {
             });
 
             const responseData = await response.json();
-            console.log(responseData.data.qrDataURL);
+         
             setdata(responseData.data.qrDataURL)
         } catch (err) {
             alert(err);
