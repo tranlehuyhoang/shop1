@@ -28,7 +28,7 @@ const Hoadon = () => {
             accountNo: 104567890,
             accountName: 'TRAN LE HUY HOANG',
             acqId: 970422,
-            amount: currentState.data[1]?.name,
+            amount: currentState.data[2]?.name,
             addInfo: currentState.data[0]?.name,
             format: 'text',
             template: 'compact'

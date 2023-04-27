@@ -86,9 +86,9 @@ const Nganhang = ({ menu, setmenu }) => {
         const currentState = store.getState();
         console.log(currentState.data);
         setsuser(currentState.data[0].name)
-        if (currentState.data[0].name) {
-            setsuser(currentState.data[0].name)
-
+        if (currentState.data[0]?.name) {
+            setsuser(currentState.data[0]?.name)
+            notify1()
         } else {
             notify1()
         }

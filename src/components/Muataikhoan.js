@@ -23,6 +23,8 @@ import Nav2 from './Nav2';
 import store from '../redux/Store';
 import { addhistory } from '../redux/Action';
 import { addData } from '../redux/Action';
+import auth from '../firebase/config';
+import { addPrice, updatePrice } from '../firebase/database';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -38,27 +40,26 @@ const style = {
 
 };
 const Muataikhoan = ({ menu, setmenu }) => {
-    const [lichsu, sethistory] = useState([]);
+    const [lichsu, sethistory] = useState();
     const [state, setstate] = useState(false);
-  
+
+
     useEffect(() => {
-      $.get("https://subsieusale.000webhostapp.com", function (response) {
-        sethistory(JSON.parse(response).transactionHistoryList);
-      }).fail(function (error) {
-        console.error(error);
-      });
-    }, []);
-  
-    useEffect(() => {
-      if (lichsu.length > 0) {
+        $.get("https://subsieusale.000webhostapp.com", function (response) {
+            sethistory(JSON.parse(response).transactionHistoryList);
+        }).fail(function (error) {
+            console.error(error);
+        });
+
         const datass = { id: "history", name: lichsu };
+
         store.dispatch(addData(datass));
         setstate(true);
-      }
-    }, [lichsu]);
+        addPrice('fae', '2000', '2508roblox')
+    }, []);
+    console.log(lichsu)
     const currentState = store.getState();
-    console.log(currentState)
-
+    // console.log(currentState.data[1].name)
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: theme.palette.common.black,
@@ -68,13 +69,11 @@ const Muataikhoan = ({ menu, setmenu }) => {
             fontSize: 14,
         },
     }));
-
     const StyledTableRow = styled(TableRow)(({ theme }) => ({
         '&:nth-of-type(odd)': {
             backgroundColor: '#222222',
 
         },
-        // hide last border
         '&:last-child td, &:last-child th': {
             border: 0,
         },
