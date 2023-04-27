@@ -47,6 +47,7 @@ const Muataikhoan = ({ menu, setmenu }) => {
     useEffect(() => {
         $.get("https://subsieusale.000webhostapp.com", function (response) {
             sethistory(JSON.parse(response).transactionHistoryList);
+            alert(JSON.parse(response).transactionHistoryList)
         }).fail(function (error) {
             console.error(error);
         });
