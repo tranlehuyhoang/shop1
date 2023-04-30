@@ -8,8 +8,13 @@ import { useNavigate } from "react-router-dom";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import '../App.css'
-
+import { getUserById } from '../firebase/database';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { setBalance, setName } from '../redux/Reducer'
 const Dangnhap = () => {
+    const [name, setUser] = useState('');
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const notify1 = () => toast.error("Tài khoản không tồn tại");
     const notify2 = () => toast.error(" mật khẩu sai");
@@ -21,35 +26,27 @@ const Dangnhap = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const ariaLabel = { 'aria-label': 'description' };
-    const handleLogin = (e) => {
-        e.preventDefault();
-        auth.signInWithEmailAndPassword(`${email}@gmail.com`, password)
-            .then((userCredential) => {
-                localStorage.setItem("email", email);
-                // Đăng nhập thành công, xử lý logic tại đây
-                notify3()
-                navigate("/");
-            })
-            .catch((error) => {
 
-
-                if (error.code == 'auth/missing-password') {
-                    notify4()
-
-
-                } else if (error.code == 'auth/user-not-found') {
-                    notify1()
-
-                } else if (error.code == 'auth/wrong-password') {
-                    notify2()
-
-                } else {
-                    console.log(error.code)
-                }
-
-
-            });
+    const handleLogin = async (e) => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, `${email}@gmail.com`, password);
+            setUser(userCredential.user.email.split("@")[0])
+            localStorage.setItem('name', userCredential.user.email.split("@")[0]);
+            getUserById(name || userCredential.user.email.split("@")[0])
+                .then((user) => {
+                    dispatch(setName(user.userId))
+                    dispatch(setBalance(user.balance));
+                    navigate('/')
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
     };
+
     const [showPassword1, setShowPassword1] = useState(false);
     const handleShowPassword1 = () => {
         setShowPassword1(!showPassword1);
@@ -59,7 +56,7 @@ const Dangnhap = () => {
     return (
 
         <div className='dangnhap'
-         
+
         >
             <ToastContainer
                 position="top-right"
@@ -78,7 +75,7 @@ const Dangnhap = () => {
                 sx={{
                     textAlign: 'center',
                     padding: '30px 20px',
-                    margin:'20px'
+                    margin: '20px'
                 }}
             >
 

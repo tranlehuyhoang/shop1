@@ -1,28 +1,19 @@
-import { ADD_DATA, GET_DATA, ADD_DATA_TO_HISTORY } from './Action';
-
-const initialState = {
-    data: [],
-
+export const setName = name => {
+  return {
+    type: "SET_NAME",
+    payload: name
+  };
 };
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_DATA:
-            const newData = action.payload;
-            const newId = newData.id;
-            const dataById = { ...state.dataById };
-            dataById[newId] = newData;
-            return {
-                ...state,
-                data: Object.values(dataById),
-                dataById
-            };
-
-        case GET_DATA:
-            return state;
-        default:
-            return state;
-    }
+export const setBalance = balance => {
+  return {
+    type: "SET_BALANCE",
+    payload: balance
+  };
 };
-
-export default reducer;
+export const setPrice = price => {
+  return {
+    type: "SET_PRICE",
+    payload: price
+  };
+};

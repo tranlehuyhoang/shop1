@@ -1,6 +1,6 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getDatabase, ref, push, set } from "firebase/database";
 const firebaseConfig = {
     apiKey: "AIzaSyAOO806Q9YNr_6XL_NiLTfMYl-k3j0Fmmg",
     authDomain: "clonesnew.firebaseapp.com",
@@ -10,8 +10,7 @@ const firebaseConfig = {
     appId: "1:327370414003:web:5c29bc8cb4573401739dc6"
 };
 
+const firebaseApp = initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
+const auth = getAuth();
 export default auth

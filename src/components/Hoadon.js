@@ -12,24 +12,24 @@ import { Link, useNavigate } from "react-router-dom";
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import axios from 'axios';
 import store from '../redux/Store';
+import { useSelector } from 'react-redux';
 const Hoadon = () => {
     const navigate = useNavigate();
-    const [state, setstate] = useState();
-    const [datas, setdata] = useState();
 
-    // console.log(currentState.data);
-    // setstate(currentState.data)
+    const [datas, setdata] = useState();
+    const name = useSelector(state => state.name);
+    const price = useSelector(state => state.price);
+
 
 
     const postanh = async () => {
-        const currentState = await store.getState();
-        setstate(currentState.data)
+
         const data = {
             accountNo: 104567890,
             accountName: 'TRAN LE HUY HOANG',
             acqId: 970422,
-            amount: currentState.data[2]?.name,
-            addInfo: currentState.data[0]?.name,
+            amount: price,
+            addInfo: name,
             format: 'text',
             template: 'compact'
         };
@@ -43,7 +43,7 @@ const Hoadon = () => {
             });
 
             const responseData = await response.json();
-         
+
             setdata(responseData.data.qrDataURL)
         } catch (err) {
             alert(err);
@@ -193,7 +193,7 @@ const Hoadon = () => {
                                             }}>
                                                 <LocalAtmIcon />
                                             </ListItemIcon>
-                                            <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{state && formatCurrency(Number(state[1].name))}</span>
+                                            <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{price && formatCurrency(Number(price))}</span>
                                             </p>
                                             <ListItemText />
                                         </ListItemButton>
@@ -211,7 +211,7 @@ const Hoadon = () => {
                                             </ListItemIcon>
                                             <p>Nội dung chuyển khoản <br /> <span style={{
                                                 color: 'yellow'
-                                            }}> {state && state[0].name}</span>
+                                            }}> {name && name}</span>
                                             </p>
                                             <ListItemText primary=" " />
                                         </ListItemButton>
@@ -246,7 +246,7 @@ const Hoadon = () => {
                                 }}>
                                     Sử dụng <strong>App Internet Banking</strong> hoặc ứng dụng camera hỗ trợ QR code để quét mã
                                 </Typography>
-                                <img src={datas && datas} alt="" srcset="" style={{
+                                <img src={datas && datas} alt="" style={{
                                     width: '80%'
                                 }} />
                             </Box>
@@ -351,7 +351,7 @@ const Hoadon = () => {
                                     }}>
                                         <LocalAtmIcon />
                                     </ListItemIcon>
-                                    <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{state && formatCurrency(Number(state[1].name))}</span>
+                                    <p>Số tiền cần thanh toán  <span style={{ color: 'aqua' }}>{price && formatCurrency(Number(price))}</span>
                                     </p>
                                     <ListItemText />
                                 </ListItemButton>
@@ -369,7 +369,7 @@ const Hoadon = () => {
                                     </ListItemIcon>
                                     <p>Nội dung chuyển khoản <br /> <span style={{
                                         color: 'yellow'
-                                    }}> {state && state[0].name}</span>
+                                    }}> {name && name}</span>
                                     </p>
                                     <ListItemText primary=" " />
                                 </ListItemButton>

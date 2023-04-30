@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import axios from 'axios';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -21,10 +22,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Nav2 from './Nav2';
 import store from '../redux/Store';
-import { addhistory } from '../redux/Action';
-import { addData } from '../redux/Action';
 import auth from '../firebase/config';
-import { addPrice, updatePrice } from '../firebase/database';
+import { addPrice, getAllTransactions, getUserById, showlichsu, updatePrice, updateTransactionStatus, updateUserBalance } from '../firebase/database';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -40,27 +39,11 @@ const style = {
 
 };
 const Muataikhoan = ({ menu, setmenu }) => {
+    const name = localStorage.getItem("name")
+    const user = useSelector(state => state.name);
     const [lichsu, sethistory] = useState();
     const [state, setstate] = useState(false);
 
-
-    useEffect(() => {
-        $.get("https://subsieusale.000webhostapp.com", function (response) {
-            sethistory(JSON.parse(response).transactionHistoryList);
-            alert(JSON.parse(response).transactionHistoryList)
-        }).fail(function (error) {
-            console.error(error);
-        });
-
-        const datass = { id: "history", name: lichsu };
-
-        store.dispatch(addData(datass));
-        setstate(true);
-        addPrice('fae', '2000', '2508roblox')
-    }, []);
-    console.log(lichsu)
-    const currentState = store.getState();
-    // console.log(currentState.data[1].name)
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: theme.palette.common.black,
@@ -79,6 +62,36 @@ const Muataikhoan = ({ menu, setmenu }) => {
             border: 0,
         },
     }));
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/mbbank')
+            .then(response => {
+                setstate(response.data.transactionHistoryList); // process the data here
+            })
+            .catch(error => {
+                console.error(error); // handle the error here
+            });
+        getUserById(name || user)
+            .then((user) => {
+                getAllTransactions()
+                    .then(async (transactions) => {
+
+                        transactions.map((e) => {
+                            if (e.trangthai == false) {
+                                updateUserBalance(e.userid, user.balance, Number(e.amount))
+                                updateTransactionStatus(e.timestamp)
+                            }
+                        })
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        console.log('hehe')
+
+    }, []);
     return (
         <>
             <Modal

@@ -15,38 +15,51 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
-import { addData, getData } from '../redux/Action';
 import store from '../redux/Store';
 import MailIcon from '@mui/icons-material/Mail'
 import Nav2 from './Nav2';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
-
+import { getUserById } from '../firebase/database'
+import { useDispatch, useSelector } from 'react-redux';
+import { setBalance, setName } from '../redux/Reducer';
 const Head = ({ menu, setmenu }) => {
+    const dispatch = useDispatch();
+    const name = useSelector(state => state.name);
+    const balance = useSelector(state => state.balance);
+    const user = localStorage.getItem("name")
     const { location } = window;
     const hehehhe = () => {
 
     }
 
-    useEffect(() => {
 
-    }, []);
     const handlelogout = () => {
-        localStorage.removeItem("email");
+        localStorage.removeItem("name");
         location.reload();
     }
+    const [state, setstate] = useState();
 
     useEffect(() => {
-
-        setstate(localStorage.getItem("email") || '')
+        console.log(name || user)
+        getUserById(name || user)
+            .then((user) => {
+                // Set the user object directly to the state variable
+                setstate(user.userId);
+                // Save name and balance to the Redux store
+                dispatch(setName(user.userId));
+                dispatch(setBalance(user.balance));
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        setstate(localStorage.getItem("name") || '')
     }, []);
-    const [state, setstate] = useState();
     const [logout, setlogout] = useState(false);
 
     const [meenu, setmennnuchill] = useState(false);
     const datass = { id: 'user', name: state };
-    store.dispatch(addData(datass));
     const showmenu = () => {
         setlogout(true)
     }
@@ -112,7 +125,7 @@ const Head = ({ menu, setmenu }) => {
                             <AddCardIcon sx={{
                                 color: 'white',
                                 padding: '0 10px'
-                            }} /> Ví : <span>0 đ</span>
+                            }} /> Ví : <span>{balance || 0} đ</span>
                         </Button>
                     </Box>
                     <Box display={'flex'} gap={2} alignItems={'center'}

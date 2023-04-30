@@ -18,12 +18,12 @@ import Modal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
 import Footer from './Footer';
 import Nav2 from './Nav2';
-import { addData, getData } from '../redux/Action';
 import store from '../redux/Store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setName, setPrice } from '../redux/Reducer';
 const notify1 = () => toast.error("Vui lòng đăng nhập");
 const notify2 = () => toast.error("xác nhận mật khẩu sai");
 const notify3 = () => toast.success("Thành công");
@@ -45,6 +45,13 @@ const style = {
 };
 
 const Nganhang = ({ menu, setmenu }) => {
+    const store = useSelector(state => state);
+    const dispatch = useDispatch();
+    const name = localStorage.getItem("name")
+
+
+
+
     const chinhstate = () => {
         setmenu('none')
         setstate(false)
@@ -64,6 +71,9 @@ const Nganhang = ({ menu, setmenu }) => {
 
     const [userss, setsuser] = useState(undefined);
     useEffect(() => {
+        setstate12(20000)
+        dispatch(setName(name))
+        dispatch(setPrice(20000));
         console.log(pathname)
         if (pathname !== '') {
 
@@ -80,19 +90,6 @@ const Nganhang = ({ menu, setmenu }) => {
     const [state1, setstate1] = useState(false);
     const [state12, setstate12] = useState(20000);
     const taohoadon = () => {
-
-        const datass = { id: 'giatien', name: state12 };
-        store.dispatch(addData(datass));
-        const currentState = store.getState();
-        console.log(currentState.data);
-        setsuser(currentState.data[0].name)
-        if (currentState.data[0]?.name) {
-            setsuser(currentState.data[0]?.name)
-            notify1()
-        } else {
-            notify1()
-        }
-
 
     }
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -120,10 +117,11 @@ const Nganhang = ({ menu, setmenu }) => {
     }));
     const handleInputChange = (event) => {
         setstate12(event.target.value);
+        dispatch(setPrice(event.target.value));
     };
 
     function MyComponent() {
-        if (Number(state12) > 20000 && userss) {
+        if (Number(state12) > 20000) {
             return (
                 <Link to={'/hoa-don'}>
                     <Button variant="contained" color='primary' onClick={e => {
@@ -133,35 +131,17 @@ const Nganhang = ({ menu, setmenu }) => {
                     }}> Tạo Hóa Đơn</Button>
                 </Link>
             )
-        } else if (!userss) {
-            <Link to={'/ngan-hang'}>
-                <Button variant="contained" color='primary' onClick={e => {
+        } else {
+            return (
+                <Link to={'/hoa-don'}>
+                    <Button variant="contained" color='primary' onClick={e => {
+                        taohoadon()
 
 
-
-                }}> Tạo Hóa Đơn</Button>
-            </Link>
-        } else if (Number(state12) < 20000) {
-            <Link to={'/ngan-hang'}>
-                <Button variant="contained" color='primary' onClick={e => {
-
-                    notify1 = () => toast.error("Vui lòng đăng nhập");
-                    notify2 = () => toast.error("xác nhận mật khẩu sai");
-                    notify3 = () => toast.success("Thành công");
-                    notify4 = () => toast.error("Không hợp lệ");
-                    notify5 = () => toast.error("Tên tài khoản phải lớn hơn 6 kí tự");
-
-                }}> Tạo Hóa Đơn</Button>
-            </Link>
+                    }}> Tạo Hóa Đơn</Button>
+                </Link>
+            )
         }
-
-
-
-
-
-
-
-
     }
 
 
@@ -268,10 +248,9 @@ const Nganhang = ({ menu, setmenu }) => {
                             }} > Tạo Hóa Đơn</Button>
                             :
 
-                            <Link to={userss ? '/hoa-don' : '/ngan-hang'}>
+                            <Link to={'/hoa-don'}>
                                 <Button variant="contained" color='primary' onClick={e => {
                                     taohoadon()
-
 
                                 }}> Tạo Hóa Đơn</Button>
                             </Link>

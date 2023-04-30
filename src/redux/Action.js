@@ -1,12 +1,30 @@
-export const ADD_DATA = 'ADD_DATA';
-export const GET_DATA = 'GET_DATA';
-export const ADD_DATA_TO_HISTORY = 'ADD_DATA_TO_HISTORY';
+const initialState = {
+  name: false,
+  balance: false,
+  price: false,
+};
 
-export const addData = (data) => ({
-  type: ADD_DATA,
-  payload: data
-});
+const userReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "SET_NAME":
+      return {
+        ...state,
+        name: action.payload
+      };
+    case "SET_BALANCE":
+      return {
+        ...state,
+        balance: action.payload
+      }
+        ;
+    case "SET_PRICE":
+      return {
+        ...state,
+        price: action.payload
+      };
+    default:
+      return state;
+  }
+};
 
-export const getData = () => ({
-  type: GET_DATA
-});
+export default userReducer;

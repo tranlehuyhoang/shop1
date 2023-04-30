@@ -10,6 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../firebase/config';
 import '../App.css'
+import { addUser } from '../firebase/database';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 const Dangki = () => {
     const notify1 = () => toast.error("Tài khoản đã tồn tại");
     const notify2 = () => toast.error("xác nhận mật khẩu sai");
@@ -30,39 +32,22 @@ const Dangki = () => {
     };
     const [showPassword1, setShowPassword1] = useState(false);
     const handleShowPassword1 = () => {
-        setShowPassword1(!showPassword1);
     };
-
-
-
-    const handleSignup = (e) => {
-        if (email.length < 6) {
-            notify5()
-            return
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        if (password !== confirmpassword) {
+            alert('Passwords do not match.');
+            return;
         }
-        if (password.length < 6) {
-            notify4()
-            return
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, `${email}@gmail.com`, password);
+            localStorage.setItem('name', email);
+            addUser(email, 0)
+            navigate('/')
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
         }
-        if (password == confirmpassword) {
-            e.preventDefault();
-            firebase
-                .auth()
-                .createUserWithEmailAndPassword(`${email}@gmail.com`, password)
-                .then((userCredential) => {
-                    console.log("thanh cong");
-                    notify3()
-
-                    navigate("/");
-                })
-                .catch((error) => {
-                    notify1()
-                    console.log(error)
-                });
-        } else {
-            notify2()
-        }
-        ;
 
     }
 
