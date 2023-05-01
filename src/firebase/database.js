@@ -11,7 +11,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+export const database = firebase.database();
 // lấy tất cả  lịch sử chuyển khoản gồm {amount: amount,trangthai: false, timestamp: timestamp}
 // thêm  lịch sử chuyển khoản gồm {amount: amount,trangthai: false, timestamp: timestamp}
 // sửa trangthai của lịch sử chuyển khoản thành true

@@ -23,7 +23,7 @@ import { useSelector } from 'react-redux';
 import Nav2 from './Nav2';
 import store from '../redux/Store';
 import auth from '../firebase/config';
-import { addPrice, getAllTransactions, getUserById, showlichsu, updatePrice, updateTransactionStatus, updateUserBalance } from '../firebase/database';
+import { addPrice, addTransaction, getAllTransactions, getUserById, showlichsu, updatePrice, updateTransactionStatus, updateUserBalance } from '../firebase/database';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -63,7 +63,7 @@ const Muataikhoan = ({ menu, setmenu }) => {
         },
     }));
     useEffect(() => {
-        axios.get('http://localhost:5000/api/mbbank')
+        axios.get('https://servershop1.onrender.com/api/mbbank')
             .then(response => {
                 setstate(response.data.transactionHistoryList); // process the data here
             })
@@ -92,6 +92,23 @@ const Muataikhoan = ({ menu, setmenu }) => {
         console.log('hehe')
 
     }, []);
+    if (state) {
+        for (let i = 0; i < state.length; i++) {
+            const element = state[i];
+            const str = element.description;
+            let transactionId = null;
+            if (str.indexOf("MoMo") == -1) {
+                const match = str.match(/CUSTOMER\s+(\w+)\s+/);
+                transactionId = match ? match[1] : null;
+            } else {
+                const str = element.description;
+                const match = str.match(/T(\w+)\s+Trace/);
+                transactionId = match ? match[1] : null;
+                console.log(transactionId); // Output: 2508roblox
+            }
+            addTransaction(element.creditAmount, element.transactionDate.split("/").join("-"), transactionId);
+        }
+    }
     return (
         <>
             <Modal

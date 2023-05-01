@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,10 +21,11 @@ import Nav2 from './Nav2';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
 import axios from 'axios';
-import { getUserById } from '../firebase/database'
+import { database, getUserById } from '../firebase/database'
 import { useDispatch, useSelector } from 'react-redux';
 import { setBalance, setName } from '../redux/Reducer';
 const Head = ({ menu, setmenu }) => {
+    const balanceRef = useRef(null);
     const dispatch = useDispatch();
     const name = useSelector(state => state.name);
     const balance = useSelector(state => state.balance);
@@ -33,8 +34,20 @@ const Head = ({ menu, setmenu }) => {
     const hehehhe = () => {
 
     }
-
-
+    useEffect(() => {
+        // Set the balance element reference after the component mounts
+        balanceRef.current = document.getElementById('balance');
+    }, []);
+    useEffect(() => {
+        // Listen for changes to the balance in the database
+        database.ref('users').on('value', (snapshot) => {
+            const data = snapshot.val();
+            const nameOrUser = name || localStorage.getItem('name');
+            if (data && data[nameOrUser]) {
+                setBalance(data[nameOrUser].balance);
+            }
+        });
+    }, [name]);
     const handlelogout = () => {
         localStorage.removeItem("name");
         location.reload();
@@ -125,7 +138,7 @@ const Head = ({ menu, setmenu }) => {
                             <AddCardIcon sx={{
                                 color: 'white',
                                 padding: '0 10px'
-                            }} /> Ví : <span>{balance || 0} đ</span>
+                            }} /> Ví : <span ref={balanceRef}>{balance || 0} đ</span>
                         </Button>
                     </Box>
                     <Box display={'flex'} gap={2} alignItems={'center'}
